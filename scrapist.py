@@ -5,7 +5,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 
 
 class Scrapist:
-    def __init__(self):
+    def __init__(self, start=0) -> None:
         # set up chrome driver
         s = Service(ChromeDriverManager().install())
         self.driver = webdriver.Chrome(service=s)
@@ -13,7 +13,10 @@ class Scrapist:
         # get room rental website
         self.driver.get('https://gmu.libcal.com/spaces?lid=1205&gid=2117')
 
-    def find_rooms(self):
+        # get the desired start time
+        self.start = start
+
+    def find_rooms(self) -> {int: {int: [str]}}:
         # create dict to store information on each room
         # room will be {roomNumber:[time1,time2,time3...]...}
         rooms = {}
@@ -40,4 +43,17 @@ class Scrapist:
                 else:
                     rooms[room_number][day].append(celtit[0])
 
-        print(rooms)
+    def parse_date(self) -> int:
+        # TODO: parse a string in HH:MMxm to some data structure that makes it easier to deal with.
+        return
+
+    def get_time_slots(self):
+        # TODO: find a room with the most consecutive time slots
+        # - time slots have to be concurrent and in the same room.
+        # - try to get as close to desired start time.
+        # - return a list of
+        return
+
+    def reserve_slots(self):
+        # TODO: click on the slots, do the duo push, etc.
+        return
