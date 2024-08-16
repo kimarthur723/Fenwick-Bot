@@ -4,7 +4,7 @@ from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
 
 
-class Scrapist:
+class Scraper:
     def __init__(self, start=0) -> None:
         # set up chrome driver
         s = Service(ChromeDriverManager().install())
