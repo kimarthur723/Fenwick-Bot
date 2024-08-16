@@ -1,5 +1,5 @@
-from scrapist import Scrapist
+from scrapist import Scraper
 
 if __name__ == '__main__':
-    s = Scrapist()
+    s = Scraper()
     rooms = s.find_rooms()
